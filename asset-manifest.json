@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ted-portfolio/static/css/main.5f361e03.chunk.css",
+    "main.js": "/ted-portfolio/static/js/main.1b0b9f27.chunk.js",
+    "main.js.map": "/ted-portfolio/static/js/main.1b0b9f27.chunk.js.map",
+    "runtime-main.js": "/ted-portfolio/static/js/runtime-main.40e9df96.js",
+    "runtime-main.js.map": "/ted-portfolio/static/js/runtime-main.40e9df96.js.map",
+    "static/js/2.49a86c5b.chunk.js": "/ted-portfolio/static/js/2.49a86c5b.chunk.js",
+    "static/js/2.49a86c5b.chunk.js.map": "/ted-portfolio/static/js/2.49a86c5b.chunk.js.map",
+    "index.html": "/ted-portfolio/index.html",
+    "precache-manifest.65a63dbbda3f39cfb8d76f152cfbb397.js": "/ted-portfolio/precache-manifest.65a63dbbda3f39cfb8d76f152cfbb397.js",
+    "service-worker.js": "/ted-portfolio/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/ted-portfolio/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.49a86c5b.chunk.js.LICENSE.txt": "/ted-portfolio/static/js/2.49a86c5b.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/ted-portfolio/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.40e9df96.js",
+    "static/js/2.49a86c5b.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.1b0b9f27.chunk.js"
+  ]
+}
