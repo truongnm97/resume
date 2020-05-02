@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6061bf8bbd9b6ecae05b551951e82211",
+    "revision": "ff5696206378dd719b1e16c7581fe6df",
     "url": "/ted-portfolio/index.html"
   },
   {
-    "revision": "d487d9a3ad57edd9280d",
+    "revision": "de09a4fe8549d94a91e8",
     "url": "/ted-portfolio/static/css/main.5f361e03.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ted-portfolio/static/js/2.49a86c5b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d487d9a3ad57edd9280d",
-    "url": "/ted-portfolio/static/js/main.1b0b9f27.chunk.js"
+    "revision": "de09a4fe8549d94a91e8",
+    "url": "/ted-portfolio/static/js/main.38974178.chunk.js"
   },
   {
     "revision": "36f5f96cb92922566d64",
