@@ -1,0 +1,62 @@
+{
+  "avatar": {
+    "constName": "Avatar",
+    "url": "https://lumiere-a.akamaihd.net/v1/images/open-uri20160811-32147-cd72yq_7d7c172f.jpeg"
+  },
+  "name": { "constName": "Title", "fullName": "Truong Nguyen", "title": "Frontend Developer" },
+  "profile": {
+    "constName": "AboutMe",
+    "detail": [
+      "I’m a hard-working, enthusiastic, and motivated person. I always try to find the easiest and most optimal way to solve the solution in a short amount of time. I’m accustomed to working in a challenging and fast-paced environment.",
+      "I’m a very positive person. I always try my very best to achieve the goal that I set for myself. I also have ability to manage my time effectively and complete multiple tasks. Communication and teamwork are skills that I’m looking forward to improving in the future."
+    ]
+  },
+  "contact": {
+    "constName": "Contact",
+    "detail": [
+      { "title": "Phone", "value": "(+84) 38-5815-797", "data": "+84385815797" },
+      { "title": "Email", "value": "truongnm157@gmail.com", "data": "truongnm157@gmail.com" },
+      { "title": "Address", "value": "Hanoi, Vietnam" }
+    ]
+  },
+  "hobbies": {
+    "constName": "Hobbies",
+    "detail": ["Workout", "Coding", "Music", "Movie", "Dota 2"]
+  },
+  "skills": {
+    "constName": "Skills",
+    "detail": [
+      "Javascript",
+      "React",
+      "React Native",
+      "GraphQL",
+      "HTML/CSS",
+      "Bootstrap",
+      "Git",
+      ".Net Framework",
+      "SQL Server",
+      "Docker",
+      "Python",
+      "Java"
+    ]
+  },
+  "languages": {
+    "constName": "Languages",
+    "detail": [
+      {
+        "title": "English",
+        "value": [{ "title": "level", "value": "Professional-working proficiency" }]
+      },
+      { "title": "Japanese", "value": [{ "title": "level", "value": "Elementary proficiency" }] }
+    ]
+  },
+  "education": {
+    "constName": "Education",
+    "detail": [
+      { "title": "name", "value": "Hanoi University of Industry" },
+      { "title": "major", "value": "Software Engineering" },
+      { "title": "time", "value": "09/2015 – 06/2019" },
+      { "title": "GPA", "value": "3.33/4" }
+    ]
+  }
+}

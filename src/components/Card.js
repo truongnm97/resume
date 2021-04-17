@@ -8,11 +8,10 @@ const CardComponent = styled.section`
   background: ${(props) => props.background ?? colors.cardBackground};
   box-shadow: 0px 25px 60px rgba(25, 11, 57, 0.25);
   border-radius: 20px;
-  padding: 70px 30px;
+  padding: 50px 30px;
   font-weight: normal;
-  font-size: 1.125rem;
+  font-size: 1rem;
   position: relative;
-  font-family: 'Inconsolata', monospace;
   transform: translate(0, 0);
 
   a:link {
@@ -61,10 +60,9 @@ const Space = styled.span`
   }
 `
 
-const Text = styled.p`
+const Text = styled.div`
   margin: 0;
   padding: 0;
-  margin-left: 20px;
 
   @media screen and (max-width: 600px) {
     margin-left: 10px;
@@ -72,8 +70,7 @@ const Text = styled.p`
 `
 
 const Code = styled.code`
-  font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-    'Open Sans', 'Helvetica Neue', sans-serif;
+  color: ${colors.text};
   :after {
     content: ');';
     color: ${colors.primary};
@@ -105,8 +102,20 @@ const Card = ({ header, children, text, background }) => {
     }
   }
 
+  const getRandomColor = () => {
+    const min = 0
+    const max = 100
+    const number = Math.floor(Math.random() * (max - min + 1)) + min
+    const color = colors.cardBackground
+    const regex = /(rgb\((\s*\d{2},?)*)(\s*\d{2},?)\)/g
+    const subst = `$1 ${number})`
+    return color.replace(regex, subst)
+  }
+
   return (
-    <CardComponent background={background}>
+    <CardComponent
+      background={background ?? getRandomColor()}
+      className='animate__animated animate__fadeInUp animate__backOutDown'>
       <Header onDragStart={onDragStart} draggable />
       <HeaderButtons />
       <Heading export>{header}</Heading>
