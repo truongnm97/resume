@@ -1,64 +1,54 @@
-import React, { useEffect, useState } from 'react'
-import { Planet, File } from 'react-kawaii'
-import { Typography, Layout, Space, Button } from 'antd'
-import './App.scss'
-import 'antd/dist/antd.dark.css'
+import React from 'react'
+import { Card, CodeElement } from './components'
+import styled from 'styled-components'
+import { colors } from './config'
 
-const { Paragraph, Text } = Typography
-const { Content } = Layout
+const AppContainer = styled.main`
+  background-color: ${colors.background};
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+`
+
+const Code = styled.span`
+  font-size: 1.125rem;
+`
 
 function App() {
-  const [clicked, setClicked] = useState(false)
-
-  let timeout = null
-
-  useEffect(() => {
-    return () => {
-      clearTimeout(timeout)
-    }
-  }, [timeout])
-
-  const onClickMe = () => {
-    setClicked(true)
-    timeout = setTimeout(() => {
-      setClicked(undefined)
-    }, 5000)
+  const getRandomColor = () => {
+    const min = 40
+    const max = 100
+    const number = Math.floor(Math.random() * (max - min + 1)) + min
+    const color = colors.cardBackground
+    const regex = /(rgb\((\s*\d{2},?)*)(\s*\d{2},?)\)/g
+    const subst = `$1 ${number})`
+    return color.replace(regex, subst)
   }
 
   return (
-    <Layout className='app'>
-      <Content className='header'>
-        {clicked == null ? (
-          <Space size={20} direction='horizontal'>
-            <Planet size={900} mood='happy' color='#ffffff' />
-            <Text strong>NOW GTFO!!!!</Text>
-          </Space>
-        ) : clicked === true ? (
-          <Space size={10} direction='vertical'>
-            <File />
-            <Paragraph>
-              Nothing here <Text strong>YET!!!!</Text>
-            </Paragraph>
-          </Space>
-        ) : (
-          <Space size={10} direction='vertical'>
-            <div className='logo'>
-              <Planet />
-            </div>
-            <Paragraph>
-              Welcome to
-              <br />
-              <Text className='title' strong>
-                The Amazing World of Teddy
-              </Text>
-            </Paragraph>
-            <Button shape='round' size='large' onClick={onClickMe}>
-              Click me
-            </Button>
-          </Space>
-        )}
-      </Content>
-    </Layout>
+    <AppContainer>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-md'>
+            <Card header='Avatar' background={getRandomColor()} text>
+              <CodeElement element='<p>' />
+              <Code>Hello</Code>
+              <CodeElement element='<p>' />
+            </Card>
+          </div>
+          <div className='col-md'>
+            <Card header='Avatar' background={getRandomColor()} text>
+              <CodeElement element='<p>' />
+              <Code>Hello</Code>
+              <CodeElement element='<p>' />
+            </Card>
+          </div>
+        </div>
+      </div>
+    </AppContainer>
   )
 }
 
