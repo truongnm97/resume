@@ -42,7 +42,18 @@ const CodeElement = ({ tag, children, className, attributes, onClick, style }) =
             {attributes.map((val, i) => (
               <Attributes key={i}>
                 {`${val.title}={`}
-                <AttributesValue>{`"${val.value}"`}</AttributesValue>
+                {val.url != null ? (
+                  <AttributesValue>
+                    <a
+                      href={val.url}
+                      target={val.url.includes('http') ? '_blank' : '_self'}
+                      rel='noopener noreferrer'>
+                      {`"${val.value}"`}
+                    </a>
+                  </AttributesValue>
+                ) : (
+                  <AttributesValue>{`"${val.value}"`}</AttributesValue>
+                )}
                 {`}`}
               </Attributes>
             ))}

@@ -61,24 +61,14 @@ function App() {
                     </CodeElement>
                   </Card>
                 </div>
-                {/* Contact */}
+                {/* Information */}
                 <div className='col-sm-12'>
-                  <Card header={data.contact.constName}>
-                    <CodeElement>
-                      {data.contact.detail.map((val, i) => (
-                        <CodeElement key={i} tag={val.title}>
-                          <Code className={'d-block ml-3'}>
-                            {val.title === 'Email' ? (
-                              <a href={`mailto:${val.data}`}>{val.value}</a>
-                            ) : val.title === 'Phone' ? (
-                              <a href={`tel:${val.data}`}>{val.value}</a>
-                            ) : (
-                              val.value
-                            )}
-                          </Code>
-                        </CodeElement>
-                      ))}
-                    </CodeElement>
+                  <Card header={data.information.constName}>
+                    <CodeElement tag={'Contact'} attributes={data.information.detail.slice(0, 2)} />
+                    <CodeElement
+                      tag={'Social'}
+                      attributes={data.information.detail.slice(2, data.information.detail.length)}
+                    />
                   </Card>
                 </div>
                 {/* Hobbies */}

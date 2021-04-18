@@ -18,11 +18,34 @@
       "I have over 3 years of experience with React, Javascript and web development"
     ]
   },
-  "contact": {
-    "constName": "Contact",
+  "information": {
+    "constName": "Information",
     "detail": [
-      { "title": "Phone", "value": "(+84) 38-5815-797", "data": "+84385815797" },
-      { "title": "Email", "value": "truongnm157@gmail.com", "data": "truongnm157@gmail.com" }
+      { "title": "phone", "value": "(+84)38-5815-797", "url": "tel:+84385815797" },
+      { "title": "email", "value": "truongnm157@gmail.com", "url": "mailto:truongnm157@gmail.com" },
+      { "title": "facebook", "value": "@truongnm97", "url": "https://www.fb.com/truongnm97" },
+      { "title": "twitter", "value": "@truongnm97", "url": "https://twitter.com/truongnm97" },
+      {
+        "title": "linkedin",
+        "value": "@truongnm97",
+        "url": "https://www.linkedin.com/in/truongnm97"
+      },
+      {
+        "title": "github",
+        "value": "@truongnm97",
+        "url": "https://github.com/truongnm97"
+      },
+      { "title": "instagram", "value": "truongnm_", "url": "http://instagram.com/truongnm_" },
+      {
+        "title": "spotify",
+        "value": "truongnm",
+        "url": "https://open.spotify.com/user/p2hg2wojxk0e94uqa6b1tw079"
+      },
+      {
+        "title": "steam",
+        "value": "teddy97",
+        "url": "https://steamcommunity.com/id/teedy97"
+      }
     ]
   },
   "hobbies": {
