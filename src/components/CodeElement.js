@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { colors } from '../config'
 
 const Tag = styled.span`
-  color: #fce2bb;
+  color: ${colors.text2};
   font-family: 'Inconsolata', monospace;
 `
 const TagClass = styled.h2`
@@ -25,11 +25,15 @@ const Attributes = styled.span`
 `
 
 const AttributesValue = styled.span`
-  color: #85c143;
+  color: ${colors.attrText};
 `
 
-const CodeElement = ({ tag, children, className, attributes }) => (
-  <div className={`mb-1 ml-3 ${className ?? ''}`}>
+const Container = styled.div`
+  ${(props) => (props.onClick != null ? `cursor: pointer` : '')}
+`
+
+const CodeElement = ({ tag, children, className, attributes, onClick, style }) => (
+  <Container className={`mb-1 ml-3 ${className ?? ''}`} onClick={onClick} style={style}>
     {tag != null && tag[0] != null && tag[0] === tag[0].toUpperCase() ? (
       attributes != null ? (
         <>
@@ -42,8 +46,18 @@ const CodeElement = ({ tag, children, className, attributes }) => (
                 {`}`}
               </Attributes>
             ))}
-            <span className='d-block'>{`/>`}</span>
+            {children != null ? (
+              <span className='d-block'>{`>`}</span>
+            ) : (
+              <span className='d-block'>{`/>`}</span>
+            )}
           </TagClass>
+          {children}
+          {children != null && (
+            <TagClass>
+              <span className='d-block'>{`</${tag}>`}</span>
+            </TagClass>
+          )}
         </>
       ) : (
         <>
@@ -59,7 +73,7 @@ const CodeElement = ({ tag, children, className, attributes }) => (
         <Tag>{`</${tag || ''}>`}</Tag>
       </>
     )}
-  </div>
+  </Container>
 )
 
 export default CodeElement

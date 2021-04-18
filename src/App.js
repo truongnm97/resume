@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Card, CodeElement } from './components'
+import { Age, Card, CodeElement } from './components'
 import styled from 'styled-components'
 import { colors } from './config'
 
@@ -24,8 +24,15 @@ const Image = styled.img`
   margin: auto;
 `
 
+const DownloadButton = styled.div`
+  font-size: 3rem;
+  text-align: center;
+  line-height: 1;
+`
+
 function App() {
   const [data, setData] = useState(null)
+  const [showAge, setShowAge] = useState()
 
   useEffect(() => {
     fetch('./data.json')
@@ -44,7 +51,7 @@ function App() {
               <div className='row'>
                 {/* Avatar */}
                 <div className='col-sm-12'>
-                  <Card header={data.avatar.constName} text>
+                  <Card header={data.avatar.constName}>
                     <CodeElement tag='img'>
                       <Image
                         className='img-fluid'
@@ -56,7 +63,7 @@ function App() {
                 </div>
                 {/* Contact */}
                 <div className='col-sm-12'>
-                  <Card header={data.contact.constName} text>
+                  <Card header={data.contact.constName}>
                     <CodeElement>
                       {data.contact.detail.map((val, i) => (
                         <CodeElement key={i} tag={val.title}>
@@ -76,7 +83,7 @@ function App() {
                 </div>
                 {/* Hobbies */}
                 <div className='col-sm-12'>
-                  <Card header={data.hobbies.constName} text>
+                  <Card header={data.hobbies.constName}>
                     <CodeElement tag={'ul'}>
                       {data.hobbies.detail.map((val, i) => (
                         <CodeElement key={i} tag='li'>
@@ -88,7 +95,7 @@ function App() {
                 </div>
                 {/* Skills */}
                 <div className='col-sm-12'>
-                  <Card header={data.skills.constName} text>
+                  <Card header={data.skills.constName}>
                     <CodeElement tag={'ul'}>
                       {data.skills.detail.map((val, i) => (
                         <CodeElement key={i} tag='li'>
@@ -100,21 +107,34 @@ function App() {
                 </div>
                 {/* Languages */}
                 <div className='col-sm-12'>
-                  <Card header={data.languages.constName} text>
-                    <CodeElement tag={''}>
+                  <Card header={data.languages.constName}>
+                    <CodeElement>
                       {data.languages.detail.map((val, i) => (
                         <CodeElement key={i} tag={val.title} attributes={val.value} />
                       ))}
                     </CodeElement>
                   </Card>
                 </div>
+                {/* Download */}
+                <div className='col-sm-12'>
+                  <Card header={data.download.constName}>
+                    <DownloadButton>
+                      <a href={data.download.url}>
+                        <ion-icon
+                          style={{ color: colors.attrText }}
+                          name='cloud-download-outline'
+                        />
+                      </a>
+                    </DownloadButton>
+                  </Card>
+                </div>
               </div>
             </div>
-            {/* Title */}
+            {/* Profile */}
             <div className='col-sm-8'>
               <div className='row'>
                 <div className='col-sm-12'>
-                  <Card header={data.name.constName} text>
+                  <Card header={data.name.constName}>
                     <CodeElement>
                       <CodeElement tag='name'>
                         <h1 className='mb-0 ml-3'>
@@ -122,14 +142,28 @@ function App() {
                         </h1>
                       </CodeElement>
                       <CodeElement tag='title'>
-                        <h4 className='mb-0 d-inline'>{data.name.title}</h4>
+                        <h4 className='d-inline'>{data.name.title}</h4>
+                      </CodeElement>
+                      <CodeElement
+                        tag={showAge ? 'age' : 'date-of-birth'}
+                        onClick={() => setShowAge(!showAge)}>
+                        <Code>
+                          {showAge ? (
+                            <Age time={data.name.dob} />
+                          ) : (
+                            new Date(data.name.dob).toLocaleDateString()
+                          )}
+                        </Code>
+                      </CodeElement>
+                      <CodeElement tag='birthplace'>
+                        <Code>{data.name.birthplace}</Code>
                       </CodeElement>
                     </CodeElement>
                   </Card>
                 </div>
                 {/* About Me */}
                 <div className='col-sm-12'>
-                  <Card header={data.profile.constName} text>
+                  <Card header={data.profile.constName}>
                     <CodeElement>
                       {data.profile.detail.map((val, i) => (
                         <CodeElement key={i} className={'text-justify'} tag='p'>
@@ -141,8 +175,30 @@ function App() {
                 </div>
                 {/* Education */}
                 <div className='col-sm-12'>
-                  <Card header={data.education.constName} text>
+                  <Card header={data.education.constName}>
                     <CodeElement tag='University' attributes={data.education.detail} />
+                  </Card>
+                </div>
+                {/* Work Experience */}
+                <div className='col-sm-12'>
+                  <Card header={data.workExperience.constName}>
+                    <CodeElement>
+                      {data.workExperience.detail.map((val, i) => (
+                        <CodeElement key={i} tag={val.title} attributes={val.value}>
+                          <CodeElement tag={'p'}>{val.data.content}</CodeElement>
+                          <CodeElement tag={'ul'}>
+                            Projects:
+                            {val.data.projects.map((project, j) => (
+                              <CodeElement tag={'li'} key={j}>
+                                <a href={project.url} target='_blank' rel='noopener noreferrer'>
+                                  {project.name}
+                                </a>
+                              </CodeElement>
+                            ))}
+                          </CodeElement>
+                        </CodeElement>
+                      ))}
+                    </CodeElement>
                   </Card>
                 </div>
               </div>
@@ -151,7 +207,7 @@ function App() {
         ) : (
           <div className='row justify-content-center'>
             <div className='col-sm-4'>
-              <Card header='Loading' text>
+              <Card header='Loading'>
                 <CodeElement tag='div'>
                   <Code>Please wait....</Code>
                 </CodeElement>

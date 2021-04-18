@@ -1,22 +1,28 @@
 {
   "avatar": {
     "constName": "Avatar",
-    "url": "https://lumiere-a.akamaihd.net/v1/images/open-uri20160811-32147-cd72yq_7d7c172f.jpeg"
+    "url": "img/avatar.jpg"
   },
-  "name": { "constName": "Title", "fullName": "Truong Nguyen", "title": "Frontend Developer" },
+  "name": {
+    "constName": "Profile",
+    "fullName": "Truong Nguyen",
+    "title": "Frontend Developer",
+    "dob": 868951800000,
+    "birthplace": "Hanoi, Vietnam"
+  },
   "profile": {
     "constName": "AboutMe",
     "detail": [
       "I’m a hard-working, enthusiastic, and motivated person. I always try to find the easiest and most optimal way to solve the solution in a short amount of time. I’m accustomed to working in a challenging and fast-paced environment.",
-      "I’m a very positive person. I always try my very best to achieve the goal that I set for myself. I also have ability to manage my time effectively and complete multiple tasks. Communication and teamwork are skills that I’m looking forward to improving in the future."
+      "I’m a very positive person. I always try my very best to achieve the goal that I set for myself. I also have ability to manage my time effectively and complete multiple tasks. Communication and teamwork are skills that I’m looking forward to improving in the future.",
+      "I have over 3 years of experience with React, Javascript and web development"
     ]
   },
   "contact": {
     "constName": "Contact",
     "detail": [
       { "title": "Phone", "value": "(+84) 38-5815-797", "data": "+84385815797" },
-      { "title": "Email", "value": "truongnm157@gmail.com", "data": "truongnm157@gmail.com" },
-      { "title": "Address", "value": "Hanoi, Vietnam" }
+      { "title": "Email", "value": "truongnm157@gmail.com", "data": "truongnm157@gmail.com" }
     ]
   },
   "hobbies": {
@@ -57,6 +63,52 @@
       { "title": "major", "value": "Software Engineering" },
       { "title": "time", "value": "09/2015 – 06/2019" },
       { "title": "GPA", "value": "3.33/4" }
+    ]
+  },
+  "download": {
+    "constName": "Download",
+    "url": ""
+  },
+  "workExperience": {
+    "constName": "WorkExperience",
+    "detail": [
+      {
+        "title": "Company",
+        "value": [
+          { "title": "name", "value": "Vgroup Online Solutions and Services Joint Stock Company" },
+          { "title": "title", "value": "Frontend Developer" },
+          { "title": "time", "value": "02/2018 – 07/2019" }
+        ],
+        "data": {
+          "content": "I’ve been worked with React, .Net Framework, SQL Server, DevExpress, Git, NodeJS, React Native, and GraphQL.",
+          "projects": [
+            { "name": "HrmCore", "url": "https://hrmcore.net/" },
+            { "name": "Kafa POS", "url": "https://kafa.com.vn/" },
+            {
+              "name": "Kafa POS Mobile App",
+              "url": "https://apps.apple.com/vn/app/kafa-pos/id1458969815"
+            },
+            { "name": "Vimid", "url": "https://vimid.vn/" }
+          ]
+        }
+      },
+      {
+        "title": "Company",
+        "value": [
+          { "title": "name", "value": "TechX Software Joint Stock Company" },
+          { "title": "title", "value": "Frontend Developer" },
+          { "title": "time", "value": "06/2020 – present" }
+        ],
+        "data": {
+          "content": "I’m working on Web Trading Systems for Vietnam’s top securities companies. I’m using React, TypeScript, Redux, Redux-saga for development.",
+          "projects": [
+            { "name": "VCSC WTS", "url": "https://trading.vcsc.com.vn/" },
+            { "name": "KIS WTS", "url": "https://trading.kisvn.vn/" },
+            { "name": "KBSV WTS", "url": "https://kbable.kbsec.com.vn/" },
+            { "name": "MAS WTS", "url": "https://mastrade.masvn.com/" }
+          ]
+        }
+      }
     ]
   }
 }

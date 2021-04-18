@@ -14,15 +14,11 @@ const CardComponent = styled.section`
   position: relative;
   transform: translate(0, 0);
 
-  a:link {
-    color: #61dafb;
-  }
-  a:visited {
-    color: #8d92df;
-  }
-  a:hover,
-  a:active {
-    color: #61dafb;
+  a {
+    color: ${colors.link};
+    &:visited {
+      color: #8d92df;
+    }
   }
 `
 
@@ -39,7 +35,7 @@ const Heading = styled.h2`
   :before {
     font-family: 'Inconsolata', monospace;
     content: 'export const ';
-    color: #fce2bb;
+    color: ${colors.text2};
   }
   :after {
     font-family: 'Inconsolata', monospace;
@@ -50,22 +46,13 @@ const Heading = styled.h2`
 const Space = styled.span`
   :before {
     font-family: 'Inconsolata', monospace;
-    color: #fce2bb;
+    color: ${colors.text2};
     content: '() ';
   }
   :after {
     font-family: 'Inconsolata', monospace;
     color: ${colors.primary};
     content: '=> ( ';
-  }
-`
-
-const Text = styled.div`
-  margin: 0;
-  padding: 0;
-
-  @media screen and (max-width: 600px) {
-    margin-left: 10px;
   }
 `
 
@@ -92,7 +79,7 @@ const Header = styled.div`
   cursor: move;
 `
 
-const Card = ({ header, children, text, background }) => {
+const Card = ({ header, children, background }) => {
   const onDragStart = (e) => {
     const { parentNode } = e.target
     if (parentNode) {
@@ -120,7 +107,7 @@ const Card = ({ header, children, text, background }) => {
       <HeaderButtons />
       <Heading export>{header}</Heading>
       <Space />
-      <Code>{text ? <Text>{children}</Text> : children}</Code>
+      <Code>{children}</Code>
     </CardComponent>
   )
 }
