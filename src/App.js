@@ -63,8 +63,12 @@ function App() {
                 </div>
                 {/* Information */}
                 <div className='col-sm-12'>
-                  <Card header={data.information.constName}>
-                    <CodeElement tag={'Contact'} attributes={data.information.detail.slice(0, 2)} />
+                  <Card header={data.information.constName} isArray>
+                    <CodeElement
+                      tag={'Contact'}
+                      attributes={data.information.detail.slice(0, 2)}
+                      isArrayItem
+                    />
                     <CodeElement
                       tag={'Social'}
                       attributes={data.information.detail.slice(2, data.information.detail.length)}
@@ -97,12 +101,15 @@ function App() {
                 </div>
                 {/* Languages */}
                 <div className='col-sm-12'>
-                  <Card header={data.languages.constName}>
-                    <CodeElement>
-                      {data.languages.detail.map((val, i) => (
-                        <CodeElement key={i} tag={val.title} attributes={val.value} />
-                      ))}
-                    </CodeElement>
+                  <Card header={data.languages.constName} isArray>
+                    {data.languages.detail.map((val, i) => (
+                      <CodeElement
+                        key={i}
+                        tag={val.title}
+                        attributes={val.value}
+                        isArrayItem={i !== data.languages.detail.length - 1}
+                      />
+                    ))}
                   </Card>
                 </div>
                 {/* Download */}
@@ -125,7 +132,7 @@ function App() {
               <div className='row'>
                 <div className='col-sm-12'>
                   <Card header={data.name.constName}>
-                    <CodeElement>
+                    <CodeElement tag='main'>
                       <CodeElement tag='name'>
                         <h1 className='mb-0 ml-3'>
                           <b>{data.name.fullName}</b>
@@ -145,8 +152,8 @@ function App() {
                           )}
                         </Code>
                       </CodeElement>
-                      <CodeElement tag='birthplace'>
-                        <Code>{data.name.birthplace}</Code>
+                      <CodeElement tag='address'>
+                        <Code>{data.name.address}</Code>
                       </CodeElement>
                     </CodeElement>
                   </Card>
@@ -154,7 +161,7 @@ function App() {
                 {/* About Me */}
                 <div className='col-sm-12'>
                   <Card header={data.profile.constName}>
-                    <CodeElement>
+                    <CodeElement tag='article'>
                       {data.profile.detail.map((val, i) => (
                         <CodeElement key={i} className={'text-justify'} tag='p'>
                           <Code>{val}</Code>
@@ -171,24 +178,26 @@ function App() {
                 </div>
                 {/* Work Experience */}
                 <div className='col-sm-12'>
-                  <Card header={data.workExperience.constName}>
-                    <CodeElement>
-                      {data.workExperience.detail.map((val, i) => (
-                        <CodeElement key={i} tag={val.title} attributes={val.value}>
-                          <CodeElement tag={'p'}>{val.data.content}</CodeElement>
-                          <CodeElement tag={'ul'}>
-                            Projects:
-                            {val.data.projects.map((project, j) => (
-                              <CodeElement tag={'li'} key={j}>
-                                <a href={project.url} target='_blank' rel='noopener noreferrer'>
-                                  {project.name}
-                                </a>
-                              </CodeElement>
-                            ))}
-                          </CodeElement>
+                  <Card header={data.workExperience.constName} isArray>
+                    {data.workExperience.detail.map((val, i) => (
+                      <CodeElement
+                        key={i}
+                        tag={val.title}
+                        attributes={val.value}
+                        isArrayItem={i !== data.workExperience.detail.length - 1}>
+                        <CodeElement tag={'p'}>{val.data.content}</CodeElement>
+                        <CodeElement tag={'ul'}>
+                          Projects:
+                          {val.data.projects.map((project, j) => (
+                            <CodeElement tag={'li'} key={j}>
+                              <a href={project.url} target='_blank' rel='noopener noreferrer'>
+                                {project.name}
+                              </a>
+                            </CodeElement>
+                          ))}
                         </CodeElement>
-                      ))}
-                    </CodeElement>
+                      </CodeElement>
+                    ))}
                   </Card>
                 </div>
               </div>

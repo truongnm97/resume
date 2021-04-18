@@ -28,11 +28,15 @@ const AttributesValue = styled.span`
   color: ${colors.attrText};
 `
 
+const Comma = styled.span`
+  color: ${colors.text2};
+`
+
 const Container = styled.div`
   ${(props) => (props.onClick != null ? `cursor: pointer` : '')}
 `
 
-const CodeElement = ({ tag, children, className, attributes, onClick, style }) => (
+const CodeElement = ({ tag, children, className, attributes, onClick, style, isArrayItem }) => (
   <Container className={`mb-1 ml-3 ${className ?? ''}`} onClick={onClick} style={style}>
     {tag != null && tag[0] != null && tag[0] === tag[0].toUpperCase() ? (
       attributes != null ? (
@@ -60,13 +64,19 @@ const CodeElement = ({ tag, children, className, attributes, onClick, style }) =
             {children != null ? (
               <span className='d-block'>{`>`}</span>
             ) : (
-              <span className='d-block'>{`/>`}</span>
+              <span className='d-block'>
+                {`/>`}
+                <Comma>{`${isArrayItem ? ',' : ''}`}</Comma>
+              </span>
             )}
           </TagClass>
           {children}
           {children != null && (
             <TagClass>
-              <span className='d-block'>{`</${tag}>`}</span>
+              <span className='d-block'>
+                {`</${tag}>`}
+                <Comma>{`${isArrayItem ? ',' : ''}`}</Comma>
+              </span>
             </TagClass>
           )}
         </>
@@ -74,14 +84,20 @@ const CodeElement = ({ tag, children, className, attributes, onClick, style }) =
         <>
           <TagClass>{`<${tag}>`}</TagClass>
           {children}
-          <TagClass>{`</${tag}>`}</TagClass>
+          <TagClass>
+            {`</${tag}>`}
+            <Comma>{`${isArrayItem ? ',' : ''}`}</Comma>
+          </TagClass>
         </>
       )
     ) : (
       <>
         <Tag>{`<${tag || ''}>`}</Tag>
         {children}
-        <Tag>{`</${tag || ''}>`}</Tag>
+        <Tag>
+          {`</${tag || ''}>`}
+          <Comma>{`${isArrayItem ? ',' : ''}`}</Comma>
+        </Tag>
       </>
     )}
   </Container>

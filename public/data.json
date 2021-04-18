@@ -8,7 +8,7 @@
     "fullName": "Truong Nguyen",
     "title": "Frontend Developer",
     "dob": 868951800000,
-    "birthplace": "Hanoi, Vietnam"
+    "address": "Hanoi, Vietnam"
   },
   "profile": {
     "constName": "AboutMe",
@@ -50,7 +50,7 @@
   },
   "hobbies": {
     "constName": "Hobbies",
-    "detail": ["Workout", "Coding", "Music", "Movie", "Dota 2"]
+    "detail": ["Music", "Movie", "Workout", "Coding", "Dota 2"]
   },
   "skills": {
     "constName": "Skills",

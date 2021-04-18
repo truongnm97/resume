@@ -23,7 +23,6 @@ const CardComponent = styled.section`
 `
 
 const Heading = styled.h2`
-  font-family: 'Inconsolata', monospace;
   display: inline;
   font-weight: bold;
   font-size: 1.25rem;
@@ -33,34 +32,33 @@ const Heading = styled.h2`
   color: ${colors.primary};
 
   :before {
-    font-family: 'Inconsolata', monospace;
     content: 'export const ';
     color: ${colors.text2};
   }
   :after {
-    font-family: 'Inconsolata', monospace;
     content: ' = ';
   }
 `
 
 const Space = styled.span`
   :before {
-    font-family: 'Inconsolata', monospace;
     color: ${colors.text2};
     content: '() ';
+    font-size: 1.25rem;
   }
   :after {
-    font-family: 'Inconsolata', monospace;
     color: ${colors.primary};
-    content: '=> ( ';
+    ${(props) => (props.isArray ? `content: '=> ['` : `content: '=> ('`)};
+    font-size: 1.25rem;
   }
 `
 
 const Code = styled.code`
   color: ${colors.text};
   :after {
-    content: ');';
+    ${(props) => (props.isArray ? `content: '];'` : `content: ');'`)};
     color: ${colors.primary};
+    font-size: 1.25rem;
   }
 `
 
@@ -79,7 +77,7 @@ const Header = styled.div`
   cursor: move;
 `
 
-const Card = ({ header, children, background }) => {
+const Card = ({ header, children, background, isArray }) => {
   const onDragStart = (e) => {
     const { parentNode } = e.target
     if (parentNode) {
@@ -106,8 +104,8 @@ const Card = ({ header, children, background }) => {
       <Header onDragStart={onDragStart} draggable />
       <HeaderButtons />
       <Heading export>{header}</Heading>
-      <Space />
-      <Code>{children}</Code>
+      <Space isArray={isArray} />
+      <Code isArray={isArray}>{children}</Code>
     </CardComponent>
   )
 }
