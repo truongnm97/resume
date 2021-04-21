@@ -17,11 +17,16 @@ const Code = styled.span`
   font-size: 1rem;
 `
 
-const Image = styled.img`
+const Image = styled.div`
   border-radius: 20px;
-  max-height: 200px;
   display: block;
   margin: auto;
+  background-image: url(${(props) => props.src});
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: ${colors.attrText};
 `
 
 const DownloadButton = styled.div`
@@ -53,11 +58,7 @@ function App() {
                 <div className='col-sm-12'>
                   <Card header={data.avatar.constName}>
                     <CodeElement tag='img'>
-                      <Image
-                        className='img-fluid'
-                        src={data.avatar.url}
-                        alt={data.avatar.constName}
-                      />
+                      <Image className='img-fluid' src={data.avatar.url} />
                     </CodeElement>
                   </Card>
                 </div>
@@ -114,9 +115,9 @@ function App() {
                 </div>
                 {/* Download */}
                 <div className='col-sm-12'>
-                  <Card header={data.download.constName}>
-                    <DownloadButton>
-                      <a href={data.download.url}>
+                  <Card isExportDefault={true}>
+                    <DownloadButton className='mt-3'>
+                      <a href={data.download.url} target='_blank' rel='noopener noreferrer'>
                         <ion-icon
                           style={{ color: colors.attrText }}
                           name='cloud-download-outline'
@@ -163,7 +164,7 @@ function App() {
                   <Card header={data.profile.constName}>
                     <CodeElement tag='article'>
                       {data.profile.detail.map((val, i) => (
-                        <CodeElement key={i} className={'text-justify'} tag='p'>
+                        <CodeElement key={i} tag='p'>
                           <Code>{val}</Code>
                         </CodeElement>
                       ))}
@@ -197,6 +198,19 @@ function App() {
                           ))}
                         </CodeElement>
                       </CodeElement>
+                    ))}
+                  </Card>
+                </div>
+                {/* Pet Project */}
+                <div className='col-sm-12'>
+                  <Card header={data.petProjects.constName} isArray>
+                    {data.petProjects.detail.map((val, i) => (
+                      <CodeElement
+                        key={i}
+                        tag={val.title}
+                        attributes={val.value}
+                        isArrayItem={i !== data.petProjects.detail.length - 1}
+                      />
                     ))}
                   </Card>
                 </div>

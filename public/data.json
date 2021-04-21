@@ -13,9 +13,9 @@
   "profile": {
     "constName": "AboutMe",
     "detail": [
-      "I’m a hard-working, enthusiastic, and motivated person. I always try to find the easiest and most optimal way to solve the solution in a short amount of time. I’m accustomed to working in a challenging and fast-paced environment.",
+      "I’m a hard-working, enthusiastic, and motivated person. I always try to find the easiest and most optimal way to solve the problem in a short amount of time. I’m accustomed to working in a challenging and fast-paced environment.",
       "I’m a very positive person. I always try my very best to achieve the goal that I set for myself. I also have ability to manage my time effectively and complete multiple tasks. Communication and teamwork are skills that I’m looking forward to improving in the future.",
-      "I have over 3 years of experience with React, Javascript and web development"
+      "I have over 2 years of experience with React, Javascript and web development"
     ]
   },
   "information": {
@@ -55,17 +55,17 @@
   "skills": {
     "constName": "Skills",
     "detail": [
-      "Javascript",
       "React",
-      "React Native",
-      "GraphQL",
+      "Javascript",
       "HTML/CSS",
       "Bootstrap",
+      "React Native",
       "Git",
       ".Net Framework",
+      "Python",
+      "GraphQL",
       "SQL Server",
       "Docker",
-      "Python",
       "Java"
     ]
   },
@@ -90,7 +90,7 @@
   },
   "download": {
     "constName": "Download",
-    "url": ""
+    "url": "https://1drv.ms/b/s!BNU3LvVm7Lf7r8EHlZvZQd9i18DbOA?e=pS7fS3VUSECurnycJnNCfg&at=9"
   },
   "workExperience": {
     "constName": "WorkExperience",
@@ -131,6 +131,51 @@
             { "name": "MAS WTS", "url": "https://mastrade.masvn.com/" }
           ]
         }
+      }
+    ]
+  },
+  "petProjects": {
+    "constName": "PetProjects",
+    "detail": [
+      {
+        "title": "Tedact",
+        "value": [
+          {
+            "title": "repository",
+            "value": "tedact",
+            "url": "https://github.com/truongnm97/tedact"
+          },
+          {
+            "title": "demo",
+            "value": "",
+            "url": "#"
+          },
+          {
+            "title": "content",
+            "value": "A Javascrpit library for building UI like React, but developed by me"
+          },
+          { "title": "technologies", "value": "Javascrpit" }
+        ]
+      },
+      {
+        "title": "TedPortfolio",
+        "value": [
+          {
+            "title": "repository",
+            "value": "ted-portfolio",
+            "url": "https://github.com/truongnm97/ted-portfolio"
+          },
+          {
+            "title": "demo",
+            "value": "teddyy.work",
+            "url": "https://teddyy.work"
+          },
+          {
+            "title": "content",
+            "value": "It's all what you're seeing right now"
+          },
+          { "title": "technologies", "value": ["React", "Bootstrap"] }
+        ]
       }
     ]
   }

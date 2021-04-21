@@ -32,11 +32,12 @@ const Heading = styled.h2`
   color: ${colors.primary};
 
   :before {
-    content: 'export const ';
     color: ${colors.text2};
+    content: '${(props) =>
+      props.isExportDefault ? `export default ` : props.isExport ? `export const ` : `const `}';
   }
   :after {
-    content: ' = ';
+    content: '${(props) => (props.isExportDefault ? '' : ' = ')}';
   }
 `
 
@@ -48,7 +49,8 @@ const Space = styled.span`
   }
   :after {
     color: ${colors.primary};
-    ${(props) => (props.isArray ? `content: '=> ['` : `content: '=> ('`)};
+    content: '${(props) => (props.isArray ? `=> [` : `=> (`)}';
+
     font-size: 1.25rem;
   }
 `
@@ -56,7 +58,7 @@ const Space = styled.span`
 const Code = styled.code`
   color: ${colors.text};
   :after {
-    ${(props) => (props.isArray ? `content: '];'` : `content: ');'`)};
+    content: '${(props) => (props.isArray ? `];` : `);`)}';
     color: ${colors.primary};
     font-size: 1.25rem;
   }
@@ -77,7 +79,7 @@ const Header = styled.div`
   cursor: move;
 `
 
-const Card = ({ header, children, background, isArray }) => {
+const Card = ({ header, children, background, isArray, isExportDefault, isExport }) => {
   const onDragStart = (e) => {
     const { parentNode } = e.target
     if (parentNode) {
@@ -103,7 +105,9 @@ const Card = ({ header, children, background, isArray }) => {
       className='animate__animated animate__fadeInUp animate__backOutDown'>
       <Header onDragStart={onDragStart} draggable />
       <HeaderButtons />
-      <Heading export>{header}</Heading>
+      <Heading isExport={isExport} isExportDefault={isExportDefault}>
+        {isExportDefault ? '' : header}
+      </Heading>
       <Space isArray={isArray} />
       <Code isArray={isArray}>{children}</Code>
     </CardComponent>

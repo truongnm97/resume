@@ -32,6 +32,10 @@ const Comma = styled.span`
   color: ${colors.text2};
 `
 
+const SquareBracket = styled.span`
+  color: ${colors.primary};
+`
+
 const Container = styled.div`
   ${(props) => (props.onClick != null ? `cursor: pointer` : '')}
 `
@@ -46,7 +50,18 @@ const CodeElement = ({ tag, children, className, attributes, onClick, style, isA
             {attributes.map((val, i) => (
               <Attributes key={i}>
                 {`${val.title}={`}
-                {val.url != null ? (
+                {Array.isArray(val.value) ? (
+                  <>
+                    <SquareBracket>{'['}</SquareBracket>
+                    {val.value.map((item, j) => (
+                      <React.Fragment key={j}>
+                        {j === 0 ? '' : ','}
+                        <AttributesValue>{`"${item}"`}</AttributesValue>
+                      </React.Fragment>
+                    ))}
+                    <SquareBracket>{']'}</SquareBracket>
+                  </>
+                ) : val.url != null ? (
                   <AttributesValue>
                     <a
                       href={val.url}
@@ -58,6 +73,7 @@ const CodeElement = ({ tag, children, className, attributes, onClick, style, isA
                 ) : (
                   <AttributesValue>{`"${val.value}"`}</AttributesValue>
                 )}
+                {}
                 {`}`}
               </Attributes>
             ))}
