@@ -40,11 +40,15 @@ function App() {
   const [showAge, setShowAge] = useState()
 
   useEffect(() => {
-    fetch('./data.json')
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data)
-      })
+    const getData = async () => {
+      const resGist = await fetch(`https://api.github.com/gists/${process.env.REACT_APP_GIST_ID}`)
+      const gistData = await resGist.json()
+      const resPortfolio = await fetch(gistData.files[process.env.REACT_APP_GIST_FILENAME].raw_url)
+      const portfolioData = await resPortfolio.json()
+      setData(portfolioData)
+    }
+
+    getData()
   }, [])
 
   return (
@@ -52,7 +56,7 @@ function App() {
       <div className='container'>
         {data ? (
           <div className='row'>
-            <div className='col-sm-4'>
+            <div className='col-lg-4'>
               <div className='row'>
                 {/* Avatar */}
                 <div className='col-sm-12'>
@@ -129,7 +133,7 @@ function App() {
               </div>
             </div>
             {/* Profile */}
-            <div className='col-sm-8'>
+            <div className='col-lg-8'>
               <div className='row'>
                 <div className='col-sm-12'>
                   <Card header={data.name.constName}>
@@ -219,7 +223,7 @@ function App() {
           </div>
         ) : (
           <div className='row justify-content-center'>
-            <div className='col-sm-4'>
+            <div className='col-lg-4'>
               <Card header='Loading'>
                 <CodeElement tag='div'>
                   <Code>Please wait....</Code>
