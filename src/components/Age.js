@@ -13,6 +13,9 @@ const Age = ({ time }) => {
     }
   }, [])
 
+  const pluralize = (number, type) =>
+    number ? `${number === 1 ? 'a' : number} ${type}${number !== 1 ? 's' : ''}` : ''
+
   const ageMs = now - time
   const ageDate = new Date(ageMs)
   const years = ageDate.getUTCFullYear() - 1970
@@ -21,9 +24,17 @@ const Age = ({ time }) => {
   const hours = ageDate.getUTCHours()
   const minutes = ageDate.getUTCMinutes()
   const seconds = ageDate.getUTCSeconds()
-  return (
-    <span>{`I'm ${years} years, ${months} months, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds old`}</span>
-  )
+
+  const timeArray = [
+    pluralize(years, 'year'),
+    pluralize(months, 'month'),
+    pluralize(days, 'day'),
+    pluralize(hours, 'hour'),
+    pluralize(minutes, 'minute'),
+    pluralize(seconds, 'second'),
+  ].filter(Boolean)
+
+  return <span>{`I'm ${timeArray.join(', ')} old`}</span>
 }
 
 export default Age

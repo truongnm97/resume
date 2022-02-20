@@ -6,7 +6,7 @@
   "name": {
     "constName": "Profile",
     "fullName": "Truong Nguyen",
-    "title": "Frontend Developer",
+    "title": "Front-End Developer",
     "dob": 868951800000,
     "address": "Hanoi, Vietnam"
   },
@@ -15,14 +15,14 @@
     "detail": [
       "I’m a hard-working, enthusiastic, and motivated person. I always try to find the easiest and most optimal way to solve the problem in a short amount of time. I’m accustomed to working in a challenging and fast-paced environment.",
       "I’m a very positive person. I always try my very best to achieve the goal that I set for myself. I also have ability to manage my time effectively and complete multiple tasks. Communication and teamwork are skills that I’m looking forward to improving in the future.",
-      "I have over 2 years of experience with React, Javascript and web development"
+      "I have over 3 years of experience with React, Javascript and web development"
     ]
   },
   "information": {
     "constName": "Information",
     "detail": [
       { "title": "phone", "value": "(+84)38-5815-797", "url": "tel:+84385815797" },
-      { "title": "email", "value": "truongnm157@gmail.com", "url": "mailto:truongnm157@gmail.com" },
+      { "title": "email", "value": "truongnm15@gmail.com", "url": "mailto:truongnm15@gmail.com" },
       { "title": "facebook", "value": "@truongnm97", "url": "https://www.fb.com/truongnm97" },
       { "title": "twitter", "value": "@truongnm97", "url": "https://twitter.com/truongnm97" },
       {
@@ -98,8 +98,8 @@
       {
         "title": "Company",
         "value": [
-          { "title": "name", "value": "Vgroup Online Solutions and Services Joint Stock Company" },
-          { "title": "title", "value": "Frontend Developer" },
+          { "title": "name", "value": "Vgroup Online Solutions and Services Joint Stock Company", "url": "https://vgroup.vn" },
+          { "title": "title", "value": "Full Stack Developer" },
           { "title": "time", "value": "02/2018 – 07/2019" }
         ],
         "data": {
@@ -118,9 +118,9 @@
       {
         "title": "Company",
         "value": [
-          { "title": "name", "value": "TechX Software Joint Stock Company" },
-          { "title": "title", "value": "Frontend Developer" },
-          { "title": "time", "value": "06/2020 – present" }
+          { "title": "name", "value": "TechX Software Joint Stock Company", "url": "https://www.linkedin.com/company/difisoft" },
+          { "title": "title", "value": "Front-End Developer" },
+          { "title": "time", "value": "06/2020 – 08/2021" }
         ],
         "data": {
           "content": "I’m working on Web Trading Systems for Vietnam’s top securities companies. I’m using React, TypeScript, Redux, Redux-saga for development.",
@@ -129,6 +129,21 @@
             { "name": "KIS WTS", "url": "https://trading.kisvn.vn/" },
             { "name": "KBSV WTS", "url": "https://kbable.kbsec.com.vn/" },
             { "name": "MAS WTS", "url": "https://mastrade.masvn.com/" }
+          ]
+        }
+      },
+      {
+        "title": "Company",
+        "value": [
+          { "title": "name", "value": "MedOn JSC", "url": "https://medon.vn" },
+          { "title": "title", "value": "Front-End Developer" },
+          { "title": "time", "value": "08/2021 – present" }
+        ],
+        "data": {
+          "content": "I’m working on Call Center System (CCOMED) and CMS for MedOn, MedOn Doctor app using React’s stack.",
+          "projects": [
+            { "name": "CMS", "url": "https://cms.medon.vn" },
+            { "name": "CCOMED", "url": "https://ccomed.medon.vn/" }
           ]
         }
       }
@@ -167,8 +182,8 @@
           },
           {
             "title": "demo",
-            "value": "teddyy.work",
-            "url": "https://teddyy.work"
+            "value": "teddyy.netlify.app",
+            "url": "https://teddyy.netlify.app/"
           },
           {
             "title": "content",
