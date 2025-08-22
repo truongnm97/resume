@@ -37,11 +37,11 @@ jobs:
   
     - name: Install dependencies
       run: npm ci
-      
-    - name: Use env variable
-      run: echo "Using REACT_APP_GIST_ID ${{ vars.REACT_APP_GIST_ID }}"
     
     - name: Build project
+      env:
+        REACT_APP_GIST_FILENAME: ${{ vars.REACT_APP_GIST_FILENAME }}
+        REACT_APP_GIST_ID: ${{ vars.REACT_APP_GIST_ID }}
       run: npm run build --if-present
 
     - name: Upload artifact
